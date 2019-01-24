@@ -1,12 +1,33 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Home | </router-link>
+      <router-link v-if="user" to="/contacts">Contacts | </router-link> 
+      <router-link v-if="user" to="/profile">Profile | </router-link> 
+      <router-link to="/login">Login</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+
+<script>
+
+export default {
+  name: 'app',
+  data: () => {
+    return {
+
+    }
+  },
+  computed: {
+    user() {
+      return window.user
+    }
+  }
+}
+
+</script>
 <style lang="stylus">
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
